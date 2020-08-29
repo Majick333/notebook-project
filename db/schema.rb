@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_000706) do
+ActiveRecord::Schema.define(version: 2020_08_29_000355) do
 
   create_table "notebooks", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_08_28_000706) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
   end
 
 end

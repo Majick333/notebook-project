@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  get 'callbacks/github'
   root 'home#index'
-  resources :notebooks
-  devise_for :users, controllers: {registrations: "registrations"}
+  
+  devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "callbacks"}
+  #change users/login to /login route
+    devise_scope :user do
+      get 'login', to: 'devise/sessions#new'
+    end
+    devise_scope :user do
+      get 'signup', to: 'devise/registrations#new'
+    end
+    resources :notebooks
+  #devise_for :users, controllers: { omniauth_callbacks:  "callbacks" }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
