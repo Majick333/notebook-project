@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Subject:</strong>
   <%= @notebook.name %>
 </p>
+<br>
+<br>
+
+<%= link_to 'New Note', new_note_path %>
 
 <%= link_to 'Edit', edit_notebook_path(@notebook) %> |
 <%= link_to 'Back', notebooks_path %>
