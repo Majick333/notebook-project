@@ -18,9 +18,9 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params(:title,:content))
+    @note = Note.new(note_params)
     @note.save
-    redirect_to note_path(@note)
+    redirect_to @note
   end
 
   def update
@@ -37,6 +37,7 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :content)
+
   end
 
 end
