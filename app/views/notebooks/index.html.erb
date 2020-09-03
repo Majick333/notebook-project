@@ -14,14 +14,35 @@
     <% @notebooks.each do |notebook| %>
       <tr>
         <td><%= notebook.name %></td>
-        <td><%= link_to 'Show', notebook %></td>
+        <td><%= link_to 'Show', note_path %></td>
         <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
         <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td><%= link_to 'New Notebook', new_notebook_path %></td>
+    </tr>
+  </tfoot>
 </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Schedule</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+      <tr>
+      </tr>
+    </tbody>
+    
+  </table>
 
 <br>
 
-<%= link_to 'New Notebook', new_notebook_path %>
+
