@@ -14,7 +14,7 @@
     <% @notebooks.each do |notebook| %>
       <tr>
         <td><%= notebook.name %></td>
-        <td><%= link_to 'Show', note_path %></td>
+        <td><%= link_to 'Show', notebook_notes_path(notebook) %></td>
         <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
         <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
