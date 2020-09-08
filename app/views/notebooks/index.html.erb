@@ -1,36 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notebooks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notebooks.each do |notebook| %>
-      <tr>
-        <td><%= notebook.name %></td>
-        <td><%= link_to 'Show', notebook_notes_path(notebook) %></td>
-        <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
-        <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td><%= link_to 'New Notebook', new_notebook_path %></td>
-    </tr>
-  </tfoot>
-</table>
+<div class="NotebookBox">
+  <h1>Notebooks</h1>
 
   <table>
     <thead>
       <tr>
-        <th>Schedule</th>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @notebooks.each do |notebook| %>
+        <tr>
+          <td><%= notebook.name %></td>
+          <td><%= link_to 'Show', notebook_notes_path(notebook) %></td>
+          <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
+          <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><%= link_to 'New Notebook', new_notebook_path %></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="Calendar Box">
+
+  <h1>Schedule</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Calendar</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -44,5 +51,6 @@
   </table>
 
 <br>
+
 
 

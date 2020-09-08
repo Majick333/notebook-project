@@ -11,6 +11,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @notes = Note.find(params[:id])
   end
 
   # GET /notes/new
@@ -25,31 +26,16 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+    @notebook = Notebook.find(params[:notebook_id])
+    @note = @notebook.notes.build(note_params)
+    @note.save
 
-    respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render :show, status: :created, location: @note }
-      else
-        format.html { render :new }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to notebooks_path
   end
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
-    respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
-      else
-        format.html { render :edit }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /notes/1
@@ -71,7 +57,7 @@ class NotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def note_params
       params.require(:note)
-      .permit(:title, :content)
+      .permit(:title, :content, :notebook_id)
       .merge(user_id: current_user.id)
     end
 end
