@@ -1,55 +1,41 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Events</h1>
 
-<div class="NotebookBox">
-  <h1>Notebooks</h1>
+<!-- 
+     find todays date & set it as a param
+     use start_date and find a range from 
+     beginning of current month to the end
+     of current month and extend to the 
+     beginning/end of the nearest weeks
+     and convert to an array 
+-->
+
+
+  <% start_date = params.fetch(:start_date, Date.today).to_date %>
+  <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a%>  
+  
+    
 
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
+        <% date_range.slice(0,7).each do |day| %>
+          <th> <%= I18n.t("date.day_names")[day.wday] %></th>
+        <% end %>
       </tr>
     </thead>
 
     <tbody>
-      <% @notebooks.each do |notebook| %>
-        <tr>
-          <td><%= notebook.name %></td>
-          <td><%= link_to 'Show', notebook_notes_path(notebook) %></td>
-          <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
-          <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>   
+           <% week.each do |day| %>
+            <td>
+              <%= day %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td><%= link_to 'New Notebook', new_notebook_path %></td>
-      </tr>
-    </tfoot>
-  </table>
-</div>
-
-<div class="Calendar Box">
-
-  <h1>Schedule</h1>
-
-  
-      <tr>
-        <th>Sunday</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thurday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-      <td><td><td>
-      </tr>
     </tbody>
 
   </table>
@@ -92,6 +78,3 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
-
-
-
