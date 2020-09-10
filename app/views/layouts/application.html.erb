@@ -10,7 +10,10 @@
   </head>
  
       <% if user_signed_in? %>
-        <p> Welcome, <%= current_user.name %> - <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete' %> </p>
+        <p> Welcome, <%= current_user.name %> - <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete' %>
+         <%= link_to 'Home', root_path %>
+        </p>
+        
       <br>
       <br>
 
