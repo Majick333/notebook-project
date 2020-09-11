@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :calendars do
+    resources :days do
+      resources :events
+    end
+  end
+
+  
   resources :notebooks do
     resources :notes
   end
