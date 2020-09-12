@@ -32,7 +32,8 @@
            <% week.each do |day| %>
             <td>
             <br>
-              <%= day %>
+              <%=link_to "#{day}", new_calendar_day_path %>
+              <%=  %>
             </td>
           <% end %>
         </tr>

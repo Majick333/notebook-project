@@ -10,6 +10,7 @@ class CalendarsController < ApplicationController
   # GET /calendars/1
   # GET /calendars/1.json
   def show
+    @calendar = Calendar.find(params[:id])
   end
 
   # GET /calendars/new
@@ -69,6 +70,8 @@ class CalendarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def calendar_params
-      params.fetch(:calendar, {})
+      params.require(:calendar)
+      .permit(:name)
+      .merge(user_id: current_user.id)
     end
 end

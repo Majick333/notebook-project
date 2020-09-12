@@ -1,6 +1,9 @@
 class CreateEvents < ActiveRecord::Migration[6.0]
   def change
     create_table :events do |t|
+      t.belongs_to :user
+      t.belongs_to :calendar
+      t.belongs_to :day
       t.string :name
       t.datetime :due_date
       t.datetime :start_time

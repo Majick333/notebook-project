@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Calendars</h1>
+<br>
+<br>
 
 <table>
   <thead>
@@ -11,7 +13,9 @@
 
   <tbody>
     <% @calendars.each do |calendar| %>
+    
       <tr>
+        <td><h2><strong><%= calendar.name %></strong></h2></td>
         <td><%= link_to 'Show', calendar %></td>
         <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
         <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -29,6 +29,7 @@ class NotebooksController < ApplicationController
   def create
     @notebook = Notebook.new(notebook_params)
     @notebook.save
+    redirect_to 'notebooks'
   end
 
   # PATCH/PUT /notebooks/1
