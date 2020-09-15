@@ -4,17 +4,20 @@ class DaysController < ApplicationController
   # GET /days
   # GET /days.json
   def index
-    @days = Day.all
+    @calendar = Calendar.find(params[:calendar_id])
+    @days = @calendar.days.all
   end
 
   # GET /days/1
   # GET /days/1.json
   def show
+    @day = Day.find(params[:id])
   end
 
   # GET /days/new
   def new
     @day = Day.new
+
   end
 
   # GET /days/1/edit
@@ -24,8 +27,11 @@ class DaysController < ApplicationController
   # POST /days
   # POST /days.json
   def create
+    @calendar = Calendar.find(params[:calendar_id])
     @day = Day.new(day_params)
-
+    @day.save
+      
+    
     respond_to do |format|
       if @day.save
         format.html { redirect_to @day, notice: 'Day was successfully created.' }
@@ -69,6 +75,7 @@ class DaysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def day_params
-      params.fetch(:day, {})
+      params.require(:day)
+      .merge(:calendar_id, :date)
     end
 end

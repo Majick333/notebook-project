@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_025955) do
+ActiveRecord::Schema.define(version: 2020_09_12_203612) do
 
   create_table "calendars", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_025955) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
     t.index ["calendar_id"], name: "index_days_on_calendar_id"
     t.index ["user_id"], name: "index_days_on_user_id"
   end

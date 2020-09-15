@@ -15,7 +15,7 @@ class NotesController < ApplicationController
         @note = @notebook.notes.build(note_params)
         @note.save
 
-        redirect_to notebooks_path(@notebook)
+        redirect_to notebook_notes_path(@notebook,@note)
     end
 
     def destroy

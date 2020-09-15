@@ -24,7 +24,11 @@
            <% week.each do |day| %>
             <td>
             <br>
-               <%= link_to "#{day}", new_calendar_day_path(@calendar) %>
+              <% @date = day%>
+              <% @day = day.to_date.to_time.to_i %>
+              <%= Day.create([:id => @day, :date => @date, :calendar_id => params.fetch(:id), :user_id => current_user.id]) %>
+              <%=  %>
+               <%= link_to "#{day}", calendar_day_path(@calendar,@day) %>
             </td>
           <% end %>
         </tr>

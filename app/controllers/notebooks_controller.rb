@@ -1,5 +1,4 @@
 class NotebooksController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
 
   # GET /notebooks
@@ -11,8 +10,6 @@ class NotebooksController < ApplicationController
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
-    @notebook = Notebook.find(params[:id])
-    @note = @notebook.notes.build
   end
 
   # GET /notebooks/new
@@ -28,19 +25,41 @@ class NotebooksController < ApplicationController
   # POST /notebooks.json
   def create
     @notebook = Notebook.new(notebook_params)
-    @notebook.save
-    redirect_to 'notebooks'
+      @notebook.save
+
+    respond_to do |format|
+      if @notebook.save
+        format.html { redirect_to @notebook, notice: 'Notebook was successfully created.' }
+        format.json { render :show, status: :created, location: @notebook }
+      else
+        format.html { render :new }
+        format.json { render json: @notebook.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /notebooks/1
   # PATCH/PUT /notebooks/1.json
   def update
+    respond_to do |format|
+      if @notebook.update(notebook_params)
+        format.html { redirect_to @notebook, notice: 'Notebook was successfully updated.' }
+        format.json { render :show, status: :ok, location: @notebook }
+      else
+        format.html { render :edit }
+        format.json { render json: @notebook.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /notebooks/1
   # DELETE /notebooks/1.json
   def destroy
     @notebook.destroy
+    respond_to do |format|
+      format.html { redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
