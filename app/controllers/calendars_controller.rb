@@ -16,6 +16,8 @@ class CalendarsController < ApplicationController
   # GET /calendars/new
   def new
     @calendar = Calendar.new
+    start_date = params.fetch(:start_date, Date.today).to_date
+    
   end
 
   # GET /calendars/1/edit
@@ -26,6 +28,7 @@ class CalendarsController < ApplicationController
   # POST /calendars.json
   def create
     @calendar = Calendar.new(calendar_params)
+    
 
     respond_to do |format|
       if @calendar.save
@@ -36,6 +39,8 @@ class CalendarsController < ApplicationController
         format.json { render json: @calendar.errors, status: :unprocessable_entity }
       end
     end
+
+    
   end
 
   # PATCH/PUT /calendars/1

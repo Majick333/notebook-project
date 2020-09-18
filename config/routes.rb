@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :calendars do
-    resources :days do
       resources :events
-    end
   end
 
   

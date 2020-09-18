@@ -3,11 +3,10 @@ class CreateEvents < ActiveRecord::Migration[6.0]
     create_table :events do |t|
       t.belongs_to :user
       t.belongs_to :calendar
-      t.belongs_to :day
       t.string :name
-      t.datetime :due_date
-      t.datetime :start_time
-      t.datetime :finish_time
+      t.date :due_date
+      t.time :start_time
+      t.time :finish_time
       t.string :location
       t.string :description
       t.integer :priority
