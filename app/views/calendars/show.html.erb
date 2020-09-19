@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><strong><%= @calendar.name %></strong></h1>
+<h1><strong>Calendar</strong></h1>
 <br>
 <br>
 
@@ -25,10 +25,10 @@
             <td>
             <br>
             <%@day = day%>
-          
+            
               <% day %>
 
-                <%= link_to "#{day}", new_calendar_event_path(@calendar,@day) %>
+                <%= link_to "#{day}", new_calendar_event_path(@calendar) %>
             </td>
           <% end %>
         </tr>
