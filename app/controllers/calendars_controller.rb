@@ -16,7 +16,6 @@ class CalendarsController < ApplicationController
   # GET /calendars/new
   def new
     @calendar = Calendar.new
-    start_date = params.fetch(:start_date, Date.today).to_date
     
   end
 
@@ -28,6 +27,7 @@ class CalendarsController < ApplicationController
   # POST /calendars.json
   def create
     @calendar = Calendar.new(calendar_params)
+      @calendar.save
     
 
     respond_to do |format|

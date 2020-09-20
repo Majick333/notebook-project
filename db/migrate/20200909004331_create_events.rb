@@ -5,8 +5,8 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.belongs_to :calendar
       t.string :name
       t.date :due_date
-      t.time :start_time
-      t.time :finish_time
+      t.datetime :start_time
+      t.datetime :finish_time
       t.string :location
       t.string :description
       t.integer :priority
