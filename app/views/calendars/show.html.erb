@@ -28,7 +28,11 @@
             
               <% day %>
 
-                <%= link_to "#{day}", calendar_events_path(@calendar,@day) %>
+                <%= link_to "#{day}", calendar_events_path(@calendar) %>
+                <br>
+                <%= Event.find_by(due_date: @day, calendar_id: @calendar) %>
+                
+                
             </td>
           <% end %>
         </tr>
