@@ -28,12 +28,15 @@
             
               <% day %>
 
-                <%= link_to "#{day}", calendar_events_path(@calendar) %>
-                <br>
-                <%= Event.find_by(due_date: @day, calendar_id: @calendar) %>
-                
-                
+                <%= link_to "#{day}", calendar_events_path(@calendar) %>          
             </td>
+            <td>
+            
+                <div id= "events_box">
+                <% @calendar.events.find_by(due_date: @day, calendar_id: @calendar) %>
+
+                </div>
+              </td>
           <% end %>
         </tr>
       <% end %>
