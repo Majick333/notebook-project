@@ -1,0 +1,17 @@
+<h1>Upcoming Events</h1>
+
+<%@calendar.events.each do |event|%>
+
+<p>
+  <strong>Name:</strong>
+  <%= event.name %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= event.due_date %>
+</p>
+
+
+
+<% end %>
