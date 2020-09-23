@@ -1,29 +1,35 @@
 <% start_date = params.fetch(:start_date, Date.today).to_date %>
-  <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a%>  
-  
-    
+<% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a%>
 
-  <table>
-    <thead>
-      <tr>
-        <% date_range.slice(0,7).each do |day| %>
-          <th> <%= I18n.t("date.day_names")[day.wday] %></th>
-        <% end %>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
-        <tr>   
-           <% week.each do |day| %>
-            <td>
-            <br>
-            <%@day = day%>
-            
-              <%= day %>
 
-            </td>
-          <% end %>
-        </tr>
+<table>
+  <thead>
+    <tr>
+      <h3>
+        <%=start_date.strftime("%B")%>
+      </h3>
+    </tr>
+
+    <tr>
+      <% date_range.slice(0,7).each do |day| %>
+      <th> <%= I18n.t("date.day_names")[day.wday] %></th>
       <% end %>
-    </tbody>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% date_range.each_slice(7) do |week| %>
+    <tr>
+      <% week.each do |day| %>
+      <td>
+        <br>
+        <%@day = day%>
+
+        <strong><%= day.strftime("%b,%d") %></strong>
+
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
