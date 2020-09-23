@@ -9,35 +9,39 @@
   
     
 
+  <article>
   <table>
-    <thead>
-      <tr>
-        <% date_range.slice(0,7).each do |day| %>
-          <th> <%= I18n.t("date.day_names")[day.wday] %></th>
-        <% end %>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
-        <tr>   
-           <% week.each do |day| %>
-            <td>
-            <br>
-            <%@day = day%>
-            
-              <% day %>
-
-                <%= link_to "#{day}", calendar_events_path(@calendar) %>          
-            </td>
+      <thead>
+        <tr>
+          <% date_range.slice(0,7).each do |day| %>
+            <th> <%= I18n.t("date.day_names")[day.wday] %></th>
           <% end %>
         </tr>
-      <% end %>
-    </tbody>
+      </thead>
 
-  </table>
+      <tbody>
+        <% date_range.each_slice(7) do |week| %>
+          <tr>   
+            <% week.each do |day| %>
+              <td>
+              <br>
+              <%@day = day%>
+              
+                <% day %>
 
-<%= link_to 'Edit', edit_calendar_path(@calendar) %> |
-<%= link_to 'Back', calendars_path %>
+                  <%= link_to "#{day}", calendar_events_path(@calendar) %>          
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
 
-<%= render 'events/events' %>
+    </table>
+  </article>
+
+  <aside>
+    <%= render 'events/events' %>
+  </aside>
+
+
+

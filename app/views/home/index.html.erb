@@ -1,24 +1,19 @@
 
-
-<div> 
-    <%= link_to 'My Notebooks', notebooks_path %>
-    <br>
-</div>
+    <% @notebooks = Notebook.all %>
 
 
-<div>
+    <main class="content"> 
 
-    <%= render 'calendars/calendar'%>
-    <br>
-    <%= link_to 'Calendar and Events', calendars_path %>
-
-</div>
-
-<br>
-
-<div>
-   
+        <aside>
+        <%= link_to 'My Notebooks', notebooks_path %>
+        <%= render 'notebooks/notebooks' %>
+        </aside>
     
-</div>
 
 
+    
+        <article>
+            <%= render 'calendars/calendar'%>
+            <%= link_to 'Calendar and Events', calendars_path %>
+        </article>
+    

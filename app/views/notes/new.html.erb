@@ -1,8 +1,8 @@
 <h1>New Note:</h1>
 
 
-<%= @notebook = Notebook.find(params[:notebook_id]) %>
-
+<% @notebook = Notebook.find(params[:notebook_id]) %>
+<article>
 <%= form_for([@notebook, @note])  do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
@@ -12,3 +12,4 @@
 
   <%= f.submit %>
 <% end %>
+</article>
