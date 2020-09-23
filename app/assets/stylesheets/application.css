@@ -54,7 +54,7 @@
     color: #000;
   }
   header, footer {
-    background: rgb(203, 255, 99);
+    background: rgb(135, 191, 22);
     height: 20vh;
     color: black;
   }
@@ -78,5 +78,17 @@
     bottom:0px;
     height:30px;
     width:100%;
-    background:rgb(203, 255, 99);
+    background:rgb(135, 191, 22);
  }
+ .rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
