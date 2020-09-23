@@ -21,6 +21,7 @@
       <br>
       <br>
       <br>
+      <%= image_tag("android-chrome-192x192.png")%>
       <br>
       <br>
       <br>
@@ -47,23 +48,25 @@
             Welcome, <%= current_user.name %> -
             <br>
             <br>
-             <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete' %>
+             <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
               <%= link_to 'Home', root_path %>
-            </h2>
-            
+              <br>
+            </h2> 
+             <br>
+             <br>          
          <% end %>
         </header>
         
+        <br>
+
         <main class="content">
            <%= yield %>
+            <footer>
+          Rails Project by <strong>Ryan McCauley</strong>
+            </footer> 
         </main>
         
-        <footer>
-        Rails Project by <strong>Ryan McCauley</strong>
-        <br>
-        <br>
         
-        </footer>
        
         </div>
   </body>

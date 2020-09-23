@@ -29,6 +29,7 @@
   }
   .col-1 {
     background: #2a2a2a;
+    background-image: url('/assets/carbon_pic.jpg') ;
     flex: 1;
     border-radius: 20px;
   }
