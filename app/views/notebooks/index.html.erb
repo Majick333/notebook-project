@@ -14,7 +14,7 @@
     </thead>
 
     <tbody>
-      <% @notebooks.each do |notebook| %>
+      <% current_user.notebooks.each do |notebook| %>
         <tr>
           <td><%= notebook.name %></td>
           <td><%= link_to 'Show', notebook_notes_path(notebook) %></td>

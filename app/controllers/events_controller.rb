@@ -1,15 +1,17 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where(user_id: current_user.id)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @events = Event.find(params[:id ])
   end
 
   # GET /events/new
@@ -24,6 +26,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    @user_id = current_user.id
     @calendar = Calendar.find( params[:calendar_id]) 
     @event = @calendar.events.build(event_params)
 
@@ -72,5 +75,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event)
       .permit(:name, :due_date, :start_time, :finish_time, :location, :description, :priority, :calendar_id)
+      .merge(:user_id => current_user)
+      
     end
 end

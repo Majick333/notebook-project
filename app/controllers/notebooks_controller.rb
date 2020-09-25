@@ -1,6 +1,6 @@
 class NotebooksController < ApplicationController
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /notebooks
   # GET /notebooks.json
   def index
