@@ -1,6 +1,6 @@
 <h1>Editing Event</h1>
 
-<%= render 'new', [calendar: :calendar_id, event: @event] %>
+<%= render 'new', [@calendar => params[:calendar_id], @event => params[:id]] %>
 
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>

@@ -41,8 +41,8 @@
             <td><%= event.priority %></td>
           </tr>
           <tr>
-            <td><%= link_to 'Show', @event %></td>
-            <td><%= link_to 'Destroy', calendar_event_path(@calendar, event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_calendar_event_path(@calendar, event) %></td>
+            <td><%= link_to 'Delete Task', calendar_event_path(@calendar, event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -51,4 +51,6 @@
 
 <br>
 
-<%= link_to 'New Event', new_calendar_event_path(@calendar, @event) %>
+<%= link_to '++ New Event', new_calendar_event_path(@calendar, @event) %>
+<%= link_to 'All Calendars', calendars_path %>
+<%= link_to 'Back' %>

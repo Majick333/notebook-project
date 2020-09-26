@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1><strong>Calendar</strong></h1>
-<br>
-<br>
 
 <% start_date = params.fetch(:start_date, Date.today).to_date %>
   <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a%>  
+
+  
+<h1><strong> <%=start_date.strftime("%B")%></strong></h1>
+<br>
+<br>
+
+
   
     
 
@@ -25,16 +29,20 @@
             <% week.each do |day| %>
               <td>
               <br>
-              <%@day = day%>
               
-                <% day %>
+              
+                <% @day = day.strftime("%b,%d") %>
 
-                  <%= link_to "#{day}", calendar_events_path(@calendar) %>          
+                  <%= link_to @day, calendar_events_path(@calendar) %>          
               </td>
             <% end %>
           </tr>
         <% end %>
       </tbody>
+        <tfoot>  Click a date to add an event to your calendar 
+        <br>
+        </tfoot>
+        
 
     </table>
   </article>
