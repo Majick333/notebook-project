@@ -33,7 +33,7 @@
               
                 <% @day = day.strftime("%b,%d") %>
 
-                  <%= link_to @day, calendar_events_path(@calendar) %>          
+                  <%= link_to @day, new_calendar_event_path(@calendar) %>          
               </td>
             <% end %>
           </tr>

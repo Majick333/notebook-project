@@ -29,6 +29,7 @@ class EventsController < ApplicationController
     @user_id = current_user.id
     @calendar = Calendar.find( params[:calendar_id]) 
     @event = @calendar.events.build(event_params)
+    @event.save
 
     respond_to do |format|
       if @event.save
@@ -75,7 +76,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event)
       .permit(:name, :due_date, :start_time, :finish_time, :location, :description, :priority, :calendar_id)
-      .merge(:user_id => current_user)
+      .merge(:user_id => current_user.id)
       
     end
 end

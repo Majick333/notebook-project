@@ -34,11 +34,7 @@
           <tr>
             <td><%= event.name %></td>
             <td><%= event.due_date %></td>
-            <td><%= event.start_time %></td>
-            <td><%= event.finish_time %></td>
-            <td><%= event.location %></td>
             <td><%= event.description %></td>
-            <td><%= event.priority %></td>
           </tr>
           <tr>
             <td><%= link_to 'Edit', edit_calendar_event_path(@calendar, event) %></td>
