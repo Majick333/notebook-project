@@ -56,10 +56,11 @@
     color: #000;
     overflow: auto;
   }
-  .content > events {
+  .content > time {
     background: rgb(143, 164, 164);
     flex: 1;
     color:#000;
+    align-content: flex-end;
   }
   header, footer {
     background: rgb(135, 191, 22);

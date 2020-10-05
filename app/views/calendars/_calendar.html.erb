@@ -1,6 +1,6 @@
 <% start_date = params.fetch(:start_date, Date.today).to_date %>
 <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a%>
-
+<% @calendar = Calendar.where({:user_id => current_user.id}).first%>
 
 
 <table>
@@ -24,9 +24,9 @@
       <% week.each do |day| %>
       <td>
         <br>
-        <%day%>
+        <% @day = day.strftime("%b,%d") %>
 
-        <strong><%= day.strftime("%b,%d") %></strong>
+        <strong><%= link_to @day, new_calendar_event_path(@calendar) %></strong>
 
       </td>
       <% end %>

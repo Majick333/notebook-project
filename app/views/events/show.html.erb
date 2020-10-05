@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<% @calendar = Calendar.find(params[:calendar_id])%>
+
+
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -21,21 +24,11 @@
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
 
-<p>
-  <strong>Priority:</strong>
-  <%= @event.priority %>
-</p>
-
 <nav class ="col-1">
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_calendar_event_path(@calendar, @event) %> |
+<%= link_to 'Back', calendar_events_path(@calendar) %>
 </nav>
