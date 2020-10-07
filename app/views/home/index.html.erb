@@ -1,25 +1,24 @@
 
     <% @notebooks = Notebook.all %>
+    
 
 
     <main class="content"> 
 
         <aside>
-        <%= render 'notebooks/notebooks' %>
-        <br><br>
-            <%= render 'events/events'%>   
+        <%= render 'notebooks/notebooks' %> 
+        <br>
+        <%= render 'events/events'%>
         </aside>
     
 
 
     
-        <article>
-            <%= render 'calendars/calendar'%>
+        <article>         
+            <div><%= render 'calendars/calendar'%></div>                     
         </article>
 
-        
-
-
-
-
+       
     </main>
+
+    

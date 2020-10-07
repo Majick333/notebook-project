@@ -2,7 +2,7 @@
 
 <% @calendars = Calendar.where({:user_id => current_user.id}).each do |calendar|%>
 
-<% calendar.events.each do |event|%>
+<% calendar.events.order(:due_date).each do |event|%>
 
 <p>
   <strong>Name:</strong>
@@ -13,7 +13,9 @@
   <strong>Due date:</strong>
   <%= event.due_date %>
 </p>
-<%= link_to 'View', calendar_event_path(calendar.id,event.id)%>
+<%= link_to 'Details', calendar_event_path(calendar.id,event.id)%>
+---
+<%= link_to 'Delete Task', calendar_event_path(calendar, event), method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
   <% end %>
 <% end %>
