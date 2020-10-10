@@ -14,8 +14,18 @@
 
 
     
-        <article>         
-            <div><%= render 'calendars/calendar'%></div>                     
+        <article> 
+            <div>
+                <% if current_user.calendars.any?%>        
+                    <%= render 'calendars/calendar'%>
+                <% else %>
+                    You haven't made a calendar yet...
+                    <br>
+                    <%= link_to 'Add a Calendar', new_calendar_path%>
+                <% end %>
+            </div>
+                
+
         </article>
 
        
