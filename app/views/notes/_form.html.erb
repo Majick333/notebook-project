@@ -1,7 +1,7 @@
 
 <aside>
 
-<% form_for ([@notebook, @note]) do |f| %>
+<% form_for ([ @notebook, @note]) do |f| %>
 
     <div class="field">
         <%= f.label :name %>
@@ -16,6 +16,10 @@
     <div class="actions">
         <%= f.submit %>
     </div>
+
+    
+    <%= f.hidden_field :category_id, :value => @category.id %>
+    <%= f.hidden_field :notebook_id, :value => @notebook.id %>
 <% end %>
 
 </aside>

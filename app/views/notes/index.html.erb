@@ -28,5 +28,5 @@
 </table>
 
 <br>
-<%= link_to 'New Note', new_notebook_note_path %>
-<%= link_to 'Home', notebooks_path %>
+<%= link_to 'New Note', new_category_notebook_note_path(@category, @notebook) %>
+<%= link_to 'Home', category_notebooks_path(@category, @notebook) %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  
+  
+</p>
+
+<h1> <strong>Name:</strong>
+<%= @category.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category.notebooks.each do |notebook| %>
+      <tr>
+        <td><%= notebook.name %></td>
+        <td><%= link_to 'Show', category_notebook_path(@category, @notebook) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot> <%=link_to 'Create New Note', new_category_notebook_path(@category,@notebook)%> </tfoot>
+</table>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

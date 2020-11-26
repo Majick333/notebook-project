@@ -4,16 +4,19 @@ class NotebooksController < ApplicationController
   # GET /notebooks
   # GET /notebooks.json
   def index
+    @category = Category.find(params[:category_id])
     @notebooks = Notebook.all
   end
 
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
+    @category = Category.find(params[:category_id])
   end
 
   # GET /notebooks/new
   def new
+    @category = Category.find(params[:category_id])
     @notebook = Notebook.new
   end
 
@@ -24,12 +27,13 @@ class NotebooksController < ApplicationController
   # POST /notebooks
   # POST /notebooks.json
   def create
+    @category = Category.find(params[:category_id])
     @notebook = Notebook.new(notebook_params)
       @notebook.save
 
     respond_to do |format|
       if @notebook.save
-        format.html { redirect_to @notebook, notice: 'Notebook was successfully created.' }
+        format.html { redirect_to [@category, @notebook], notice: 'Notebook was successfully created.' }
         format.json { render :show, status: :created, location: @notebook }
       else
         format.html { render :new }
@@ -71,7 +75,8 @@ class NotebooksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def notebook_params
       params.require(:notebook)
-      .permit(:name, :notebook_id)
-      .merge(user_id: current_user.id)
+      .permit(:name, :notebook_id, :category_id)
+      .merge(:user_id => current_user.id)
+      
     end
 end
