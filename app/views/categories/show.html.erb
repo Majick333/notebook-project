@@ -17,11 +17,15 @@
   </thead>
 
   <tbody>
+    <% if @category.notebooks.length > 0 %>
     <% @category.notebooks.each do |notebook| %>
       <tr>
         <td><%= notebook.name %></td>
         <td><%= link_to 'Show', category_notebook_path(@category, @notebook) %></td>
       </tr>
+      <%end%>
+        <% else %>
+      <% puts "No Notebooks Created" %>
     <% end %>
   </tbody>
 

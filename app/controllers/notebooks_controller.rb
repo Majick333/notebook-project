@@ -77,6 +77,7 @@ class NotebooksController < ApplicationController
       params.require(:notebook)
       .permit(:name, :notebook_id, :category_id)
       .merge(:user_id => current_user.id)
+      .merge(:category_id => @category.id)
       
     end
 end

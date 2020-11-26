@@ -31,6 +31,7 @@ class NotesController < ApplicationController
     def note_params
         params.require(:note)
         .permit(:name, :content, :notebook_id, :category_id)
+        .merge(:category_id)
         
     end
 
