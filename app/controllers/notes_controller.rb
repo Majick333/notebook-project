@@ -8,6 +8,8 @@ class NotesController < ApplicationController
     end
 
     def new
+        @category = Category.find(params[:category_id])
+        @notebook = Notebook.find(params[:notebook_id])
         @note = Note.new
     end
 
@@ -21,6 +23,8 @@ class NotesController < ApplicationController
     end
 
     def destroy
+        @category = Category.find(params[:category_id])
+        @notebook = Notebook.find(params[:notebook_id])
         @note = Note.find(params[:id])
         @note.destroy
         redirect_to category_notebooks_path(@category, @notebook)
@@ -30,8 +34,7 @@ class NotesController < ApplicationController
 
     def note_params
         params.require(:note)
-        .permit(:name, :content, :notebook_id, :category_id)
-        .merge(:category_id)
+        .permit(:name, :content, :notebook_id)
         
     end
 
