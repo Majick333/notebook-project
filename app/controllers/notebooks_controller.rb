@@ -61,7 +61,7 @@ class NotebooksController < ApplicationController
   def destroy
     @notebook.destroy
     respond_to do |format|
-      format.html { redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.' }
+      format.html { redirect_to category_notebooks_url, notice: 'Notebook was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
