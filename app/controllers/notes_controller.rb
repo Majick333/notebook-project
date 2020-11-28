@@ -2,26 +2,32 @@ class NotesController < ApplicationController
     before_action :authenticate_user!
 
     def index
+        @category = Category.find(params[:category_id])
         @notebook = Notebook.find(params[:notebook_id])
         @notes = @notebook.notes.all
     end
 
     def new
+        @category = Category.find(params[:category_id])
+        @notebook = Notebook.find(params[:notebook_id])
         @note = Note.new
     end
 
     def create
+        @category = Category.find(params[:category_id])
         @notebook = Notebook.find(params[:notebook_id])
         @note = @notebook.notes.build(note_params)
         @note.save
 
-        redirect_to notebook_notes_path(@notebook,@note)
+        redirect_to category_notebook_notes_path(@category, @notebook)
     end
 
     def destroy
+        @category = Category.find(params[:category_id])
+        @notebook = Notebook.find(params[:notebook_id])
         @note = Note.find(params[:id])
         @note.destroy
-        redirect_to notebooks_path(@notebook)
+        redirect_to category_notebooks_path(@category, @notebook)
     end
 
     private
@@ -29,6 +35,7 @@ class NotesController < ApplicationController
     def note_params
         params.require(:note)
         .permit(:name, :content, :notebook_id)
+        
     end
 
 end

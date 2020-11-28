@@ -17,16 +17,16 @@
       <% current_user.notebooks.each do |notebook| %>
         <tr>
           <td><%= notebook.name %></td>
-          <td><%= link_to 'Show', notebook_notes_path(notebook) %></td>
-          <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
-          <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', category_notebook_notes_path(@category, notebook) %></td>
+          <td><%= link_to 'Edit', edit_category_notebook_path(@category, notebook) %></td>
+          <td><%= link_to 'Destroy', category_notebook_path(@category, notebook), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
 
     <tfoot>
       <tr>
-        <td><%= link_to 'New Notebook', new_notebook_path %></td>
+        <td><%= link_to 'New Notebook', new_category_notebook_path(@category) %></td>
       </tr>
     </tfoot>
 

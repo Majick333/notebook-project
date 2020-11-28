@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  
+  
+</p>
+<article>
+<h1> <strong>Name:</strong>
+<%= @category.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @category.notebooks.length > 0 %>
+    <% @category.notebooks.each do |notebook| %>
+      <tr>
+        <td><%= notebook.name %></td>
+        <td><%= link_to 'Show', category_notebook_path(@category, @notebook) %></td>
+      </tr>
+      <%end%>
+        <% else %>
+      <% puts "No Notebooks Created" %>
+    <% end %>
+  </tbody>
+</table>
+</article>
+<br>
+<br>
+<aside>
+<%=link_to 'Create New Notebook', new_category_notebook_path(@category,@notebook)%>  
+
+<%= link_to 'Rename Category', edit_category_path(@category) %>
+<br>
+<%= link_to 'Back', categories_path %>
+</aside>

@@ -21,12 +21,12 @@
       <tr>
         <td><%= link_to 'Show', @note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [@category, @notebook, note], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Note', new_notebook_note_path %>
-<%= link_to 'Home', notebooks_path %>
+<%= link_to 'New Note', new_category_notebook_note_path(@category, @notebook) %>
+<%= link_to 'Home', category_notebooks_path(@category, @notebook) %>

@@ -1,13 +1,14 @@
 <h1>New Note:</h1>
 
 
-<% @notebook = Notebook.find(params[:notebook_id]) %>
+
 <article>
-<%= form_for([@notebook, @note])  do |f| %>
+<%= form_for([@category, @notebook, @note])  do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
   <%= f.label :content %>
   <%= f.text_field :content %>
+  <%= f.hidden_field :category_id, :value => @category %>
   <br>
 
   <%= f.submit %>

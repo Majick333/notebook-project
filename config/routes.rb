@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  
   resources :calendars do
       resources :events
   end
 
-  
-  resources :notebooks do
-    resources :notes
+  resources :categories do
+    resources :notebooks do
+      resources :notes
+    end
   end
   resources :notes
   get 'callbacks/github'

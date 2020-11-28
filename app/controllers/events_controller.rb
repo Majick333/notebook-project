@@ -5,17 +5,20 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @calendar = Calendar.find(params[:calendar_id])
     @events = Event.where(user_id: current_user.id)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @calendar = Calendar.find(params[:calendar_id])
     @events = Event.find(params[:id ])
   end
 
   # GET /events/new
   def new
+    @calendar = Calendar.find(params[:calendar_id])
     @event = Event.new
   end
 
@@ -27,7 +30,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @user_id = current_user.id
-    @calendar = Calendar.find( params[:calendar_id]) 
+    @calendar = Calendar.find(params[:calendar_id]) 
     @event = @calendar.events.build(event_params)
     @event.save
 
