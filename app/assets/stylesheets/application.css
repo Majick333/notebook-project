@@ -32,6 +32,7 @@
     background-image: url('/assets/carbon_pic.jpg') ;
     flex: 1;
     border-radius: 20px;
+    font-family: Megrim, cursive;
   }
   .col-2 {
     display: flex;
@@ -40,6 +41,7 @@
     border-radius: 20px;
     background-image: url('/assets/background texture.png');
     overflow: auto;
+    font-family: Megrim, cursive;
   }
   .content {
     display: flex;
@@ -62,6 +64,7 @@
     flex: 1;
     color: #000;
     overflow: auto;
+    opacity: .7;
   }
   .content > time {
     background: rgb(143, 164, 164);
@@ -73,13 +76,14 @@
     background: rgb(135, 191, 22);
     height: 20vh;
     color: black;
+    opacity: .5;
   }
   header, footer, article, nav, aside {
     padding: 1em;
   }
 
   a:link, a:visited {
-    background-color:  #585858;
+    /* background-color:  #b6adad; */
     color: rgb(49, 255, 224);
     padding: 10px 9px;
     text-align: center;
@@ -108,3 +112,25 @@
     transform: rotate(359deg);
   }
 }
+
+  h1{
+    font-family: Megrim, cursive;
+    font-size: 5rem ;
+  }
+
+  h3 {
+    font-family: Megrim, cursive;
+    font-size: 1rem ;
+  }
+
+  .alien-logo {
+    background-color:rgb(135, 191, 22);
+    opacity: .4;
+  }
+
+ button {
+   opacity: 1;
+   background-color: rgb(135, 191, 22);
+   width: 33%;
+   opacity: .8;
+ }

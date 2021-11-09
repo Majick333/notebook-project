@@ -21,7 +21,7 @@
     <% @category.notebooks.each do |notebook| %>
       <tr>
         <td><%= notebook.name %></td>
-        <td><%= link_to 'Show', category_notebook_path(@category, @notebook) %></td>
+        <td> <button <%= link_to 'Show', category_notebook_path(@category, @notebook) %> </button> </td> 
       </tr>
       <%end%>
         <% else %>

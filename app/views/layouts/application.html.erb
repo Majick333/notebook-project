@@ -2,8 +2,11 @@
 <html>
   <head>
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => 'image/png' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">   
 
-    <title>NotebookProject</title>
+    <title>:::MotherShip:::</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,45 +23,47 @@
       <br>
       <br>
       <br>
-        <div class="rotate" width="100" height="100">
-        <%= image_tag("android-chrome-192x192.png")%>
-        </div>
+         <div class='alien-logo'>
+        <%= image_tag("alien1.png")%>
+         </div>
       <br>
       <br>
       <br>
+      <button>
       <%= link_to 'Home', root_path%>
+      </button>
       <br>
       <br>
       <br>
       <br>
-      <%= link_to 'Notebooks', categories_path %>
+      <button>
+      <%= link_to 'Notes', categories_path %>
+      </button>
       <br>
       <br>
       <br>
       <br>
-      <%= link_to 'Calendars', calendars_path %>
+      <button>
+      <%= link_to 'Itinerary', calendars_path %>
+      </button>
       <br>
       <br>
       <br>
       <br>
+      <button><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></button>
       
     </nav>
       
       <div class="col-2">
         <header>
-          <h1> Organizer on Rails </h1>
+          <h1> MotherShip Organizer</h1>
+          <br>
+          <h3>::developed by Skyquake Software::</h3>
 
           <% if user_signed_in? %>
             <h2>
-            Welcome, <%= current_user.name %> -
-            <br>
-            <br>
-             <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-              <%= link_to 'Home', root_path %>
-              <br>
-            </h2> 
-             <br>
-             <br>          
+            Welcome, <%= current_user.name %> -  
+             <% else %>       
          <% end %>
         </header>
         
@@ -67,7 +72,7 @@
         <main class="content">
            <%= yield %>
             <footer>
-          Rails Project by <strong>Ryan McCauley</strong>
+          Rails Concept by <strong>Ryan McCauley</strong>
             </footer> 
         </main>
         
