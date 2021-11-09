@@ -83,7 +83,7 @@
   }
 
   a:link, a:visited {
-    background-color:  #b6adad;
+    /* background-color:  #b6adad; */
     color: rgb(49, 255, 224);
     padding: 10px 9px;
     text-align: center;
@@ -115,6 +115,12 @@
 
   h1{
     font-family: Megrim, cursive;
+    font-size: 5rem ;
+  }
+
+  h3 {
+    font-family: Megrim, cursive;
+    font-size: 1rem ;
   }
 
   .alien-logo {
@@ -122,4 +128,9 @@
     opacity: .4;
   }
 
- 
+ button {
+   opacity: 1;
+   background-color: rgb(135, 191, 22);
+   width: 33%;
+   opacity: .8;
+ }

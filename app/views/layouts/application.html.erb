@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">   
 
-    <title>MotherShip</title>
+    <title>:::MotherShip:::</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -29,45 +29,40 @@
       <br>
       <br>
       <br>
-      <div class='side-menu'>
+      <button>
       <%= link_to 'Home', root_path%>
-      </div>
+      </button>
       <br>
       <br>
       <br>
       <br>
-      <div class='side-menu'>
-      <%= link_to 'Notebooks', categories_path %>
-      </div>
+      <button>
+      <%= link_to 'Notes', categories_path %>
+      </button>
       <br>
       <br>
       <br>
       <br>
-      <div class='side-menu'>
+      <button>
       <%= link_to 'Itinerary', calendars_path %>
-      </div>
+      </button>
       <br>
       <br>
       <br>
       <br>
+      <button><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></button>
       
     </nav>
       
       <div class="col-2">
         <header>
           <h1> MotherShip Organizer</h1>
+          <br>
+          <h3>::developed by Skyquake Software::</h3>
 
           <% if user_signed_in? %>
             <h2>
-            Welcome, <%= current_user.name %> - 
-            <br>
-            <br>
-             <h1><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></h1>
-              <%= link_to 'Home', root_path %>
-              <br>
-            </h2> 
-             <br>
-             <br>   
+            Welcome, <%= current_user.name %> -  
              <% else %>       
          <% end %>
         </header>
@@ -77,7 +72,7 @@
         <main class="content">
            <%= yield %>
             <footer>
-          Rails Project by <strong>Ryan McCauley</strong>
+          Rails Concept by <strong>Ryan McCauley</strong>
             </footer> 
         </main>
         
