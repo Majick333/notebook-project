@@ -2,8 +2,11 @@
 <html>
   <head>
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => 'image/png' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">   
 
-    <title>NotebookProject</title>
+    <title>MotherShip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,23 +23,29 @@
       <br>
       <br>
       <br>
-        <div class="rotate" width="100" height="100">
-        <%= image_tag("android-chrome-192x192.png")%>
-        </div>
+         <div class='alien-logo'>
+        <%= image_tag("alien1.png")%>
+         </div>
       <br>
       <br>
       <br>
+      <div class='side-menu'>
       <%= link_to 'Home', root_path%>
+      </div>
       <br>
       <br>
       <br>
       <br>
+      <div class='side-menu'>
       <%= link_to 'Notebooks', categories_path %>
+      </div>
       <br>
       <br>
       <br>
       <br>
-      <%= link_to 'Calendars', calendars_path %>
+      <div class='side-menu'>
+      <%= link_to 'Itinerary', calendars_path %>
+      </div>
       <br>
       <br>
       <br>
@@ -46,19 +55,20 @@
       
       <div class="col-2">
         <header>
-          <h1> Organizer on Rails </h1>
+          <h1> MotherShip Organizer</h1>
 
           <% if user_signed_in? %>
             <h2>
-            Welcome, <%= current_user.name %> -
+            Welcome, <%= current_user.name %> - 
             <br>
             <br>
-             <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+             <h1><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></h1>
               <%= link_to 'Home', root_path %>
               <br>
             </h2> 
              <br>
-             <br>          
+             <br>   
+             <% else %>       
          <% end %>
         </header>
         
