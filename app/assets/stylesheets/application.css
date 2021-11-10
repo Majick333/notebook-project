@@ -78,6 +78,9 @@
     height: 20vh;
     color: black;
     opacity: .5;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
   }
   header, footer, article, nav, aside {
     padding: 1em;
