@@ -2,11 +2,12 @@
 <html>
   <head>
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => 'image/png' %>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">   
 
+<<<<<<< HEAD
     <title>:::MotherShip:::</title>
+=======
+    <title>NotebookProject</title>
+>>>>>>> parent of c12f73d... change logo and add opacity to css
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,29 +24,41 @@
       <br>
       <br>
       <br>
-         <div class='alien-logo'>
-        <%= image_tag("alien1.png")%>
-         </div>
+        <div class="rotate" width="100" height="100">
+        <%= image_tag("android-chrome-192x192.png")%>
+        </div>
       <br>
       <br>
       <br>
+<<<<<<< HEAD
       <button>
       <%= link_to 'Home', root_path%>
       </button>
+=======
+      <%= link_to 'Home', root_path%>
+>>>>>>> parent of c12f73d... change logo and add opacity to css
       <br>
       <br>
       <br>
       <br>
+<<<<<<< HEAD
       <button>
       <%= link_to 'Notes', categories_path %>
       </button>
+=======
+      <%= link_to 'Notebooks', categories_path %>
+>>>>>>> parent of c12f73d... change logo and add opacity to css
       <br>
       <br>
       <br>
       <br>
+<<<<<<< HEAD
       <button>
       <%= link_to 'Itinerary', calendars_path %>
       </button>
+=======
+      <%= link_to 'Calendars', calendars_path %>
+>>>>>>> parent of c12f73d... change logo and add opacity to css
       <br>
       <br>
       <br>
@@ -56,6 +69,7 @@
       
       <div class="col-2">
         <header>
+<<<<<<< HEAD
           <h1> MotherShip Organizer</h1>
           <br>
           <h3>::developed by Skyquake Software::</h3>
@@ -64,6 +78,21 @@
             <h2>
             Welcome, <%= current_user.name %> -  
              <% else %>       
+=======
+          <h1> Organizer on Rails </h1>
+
+          <% if user_signed_in? %>
+            <h2>
+            Welcome, <%= current_user.name %> -
+            <br>
+            <br>
+             <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+              <%= link_to 'Home', root_path %>
+              <br>
+            </h2> 
+             <br>
+             <br>          
+>>>>>>> parent of c12f73d... change logo and add opacity to css
          <% end %>
         </header>
         
