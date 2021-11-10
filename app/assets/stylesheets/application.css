@@ -73,6 +73,7 @@
     background: rgb(135, 191, 22);
     height: 20vh;
     color: black;
+    opacity: .6;
   }
   header, footer, article, nav, aside {
     padding: 1em;

@@ -3,6 +3,10 @@
   <head>
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => 'image/png' %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet"> 
+
 
     <title>:::MotherShip:::</title>
 
@@ -23,8 +27,8 @@
       <br>
       <br>
       <br>
-        <div class="rotate" width="100" height="100">
-        <%= image_tag("android-chrome-192x192.png")%>
+        <div class= 'alien-logo'>
+        <%= image_tag("alien1.png")%>
         </div>
       <br>
       <br>
@@ -32,8 +36,10 @@
       <button>
       <%= link_to 'Home', root_path%>
       </button>
-
-
+      <br>
+      <br>
+      <br>
+      <br>
       <button>
       <%= link_to 'Notes', categories_path %>
       </button>
