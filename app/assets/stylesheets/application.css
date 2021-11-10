@@ -33,6 +33,7 @@
     flex: 1;
     border-radius: 20px;
     font-family: Megrim, cursive;
+    padding-bottom: 10%;
   }
   .col-2 {
     display: flex;
@@ -99,6 +100,7 @@
     height:30px;
     width:100%;
     background:rgb(135, 191, 22);
+    opacity: 1;
  }
  .rotate {
   animation: rotation 8s infinite linear;
@@ -115,12 +117,12 @@
 
   h1{
     font-family: Megrim, cursive;
-    font-size: 5rem ;
+    font-size: 33px ;
   }
 
   h3 {
     font-family: Megrim, cursive;
-    font-size: 1.2rem ;
+    font-size: 19px ;
   }
 
   .alien-logo {
