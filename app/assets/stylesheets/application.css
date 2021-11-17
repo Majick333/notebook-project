@@ -135,9 +135,20 @@
 
  button {
    opacity: 1;
-   background-color: rgb(135, 191, 22);
-   width: 33%;
+   background-color: rgb(114, 119, 104);
+   width: 100%;
    opacity: .8;
    font-family: Megrim, cursive;
    font-size: 1rem ;
+   margin: 13%;
  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 30%;
+    width: inherit;
+ }
+
