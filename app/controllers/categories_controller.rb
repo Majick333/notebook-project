@@ -23,6 +23,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+      @category.save
 
     respond_to do |format|
       if @category.save
@@ -65,6 +66,8 @@ class CategoriesController < ApplicationController
 
    
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category)
+      .permit(:name)
+      .merge(user_id: current_user.id)
     end
 end
