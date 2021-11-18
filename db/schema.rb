@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_164947) do
+ActiveRecord::Schema.define(version: 2021_11_18_031358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 2021_11_17_164947) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "screen_name"
+    t.string "profile_picture"
+    t.string "friends"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

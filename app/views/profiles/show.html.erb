@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Screen name:</strong>
+  <%= @profile.screen_name %>
+</p>
+
+<p>
+  <strong>Profile picture:</strong>
+  <%= @profile.profile_picture %>
+</p>
+
+<p>
+  <strong>Friends:</strong>
+  <%= @profile.friends %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
