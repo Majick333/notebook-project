@@ -25,6 +25,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.save
 
     respond_to do |format|
       if @profile.save
@@ -69,6 +70,8 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:screen_name, :profile_picture, :friends)
+      params.require(:profile)
+      .permit(:screen_name, :profile_picture, :friends)
+      .merge(:user_id => current_user.id)
     end
 end
