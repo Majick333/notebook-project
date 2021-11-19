@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_031358) do
   end
 
   create_table "calendars", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_031358) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "calendar_id"
+    t.bigint "user_id"
+    t.bigint "calendar_id"
     t.string "name"
     t.date "due_date"
     t.datetime "start_time"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_031358) do
 
   create_table "notebooks", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_031358) do
   create_table "notes", force: :cascade do |t|
     t.string "name"
     t.string "content"
-    t.integer "notebook_id"
+    t.bigint "notebook_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"

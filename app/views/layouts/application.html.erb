@@ -24,8 +24,13 @@
       <br>
       <br>
          <div class='alien-logo'>
+         <% if current_user.profile%>
+            <image src="<%= (url_for(current_user.profile.profile_picture)) %>">
+          <% else %>
         <%= image_tag("alien1.png")%>
+          <% end %>
          </div>
+
          <div class='button-container'>
          <button>
          <%= link_to 'My Profile', profiles_path %>

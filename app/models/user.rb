@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_one :profile
+  has_one_attached :profile_picture
   has_many :categories
   has_many :notebooks, through: :categories
   has_many :notes, through: :notebooks
