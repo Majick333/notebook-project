@@ -20,12 +20,11 @@
 
 
     <nav class = "col-1">
-      <br>
-      <br>
-      <br>
+     
+     
          <div class='alien-logo'>
-         <% if current_user.profile%>
-            <image src="<%= (url_for(current_user.profile.profile_picture)) %>">
+         <% if current_user.profile.profile_picture.attached? %>
+            <image src="<%= (url_for(current_user.profile.profile_picture)) %>" >
           <% else %>
         <%= image_tag("alien1.png")%>
           <% end %>
