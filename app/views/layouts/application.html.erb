@@ -23,7 +23,7 @@
      
      
          <div class='alien-logo'>
-         <% if current_user.profile.profile_picture.attached? %>
+         <% if current_user.profile %>
             <image src="<%= (url_for(current_user.profile.profile_picture)) %>" >
           <% else %>
         <%= image_tag("alien1.png")%>
@@ -71,7 +71,11 @@
 
           <% if user_signed_in? %>
             <h2>
-            Welcome, <%= current_user.name %> -       
+            Welcome, <% if current_user.profile%>
+                        <%= '$'+current_user.profile.screen_name %>
+                      <% else %>
+                        <%= current_user.name %> - 
+                    <%end%>      
           <% end %>
         </header>
         
