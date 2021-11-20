@@ -14,14 +14,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
-
-  
-
-
-    <nav class = "col-1">
-     
-     
+    <nav class = "col-1">    
          <div class='alien-logo'>
          <% if user_signed_in? %>
          <% if current_user.profile %>
@@ -33,35 +26,23 @@
          </div>
 
          <div class='button-container'>
-         <button>
+        <button>
          <%= link_to 'My Profile', profiles_path %>
-         </button>
-      <br>
-      <br>
-      <br>
+        </button>
+  
+        <button>
+          <%= link_to 'Home', root_path%>
+        </button>
+
+        <button>
+          <%= link_to 'Notes', categories_path %>
+        </button>
+  
+        <button>
+          <%= link_to 'Itinerary', calendars_path %>
+        </button>
       
-      <button>
-      <%= link_to 'Home', root_path%>
-      </button>
-      <br>
-      <br>
-      <br>
-      <br>
-      <button>
-      <%= link_to 'Notes', categories_path %>
-      </button>
-      <br>
-      <br>
-      <br>
-      <br>
-      <button>
-      <%= link_to 'Itinerary', calendars_path %>
-      </button>
-      <br>
-      <br>
-      <br>
-      <br>
-      <button><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></button>
+        <button><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></button>
       </div>
     </nav>
       
@@ -80,19 +61,16 @@
                     <%end%>      
           <% end %>
         </header>
-        
-        <br>
 
         <main class="content">
            <%= yield %>
+           
             <footer>
           Rails Concept by <strong>Ryan McCauley</strong>
             </footer> 
-        </main>
-        
-        
-       
-        </div>
+        </main>  
+
+      </div>
   </body>
 
   </html>
