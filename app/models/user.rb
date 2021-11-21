@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :notes, through: :notebooks
   has_many :calendars
   has_many :events, through: :calendars
+  has_many :friends
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
