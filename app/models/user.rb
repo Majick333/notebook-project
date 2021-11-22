@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   has_one :profile
   has_one_attached :profile_picture
   has_many :categories
@@ -8,21 +7,29 @@ class User < ApplicationRecord
   has_many :calendars
   has_many :events, through: :calendars
   has_many :friends
-  
+
+  has_many :friend_requests_as_sender,
+           foreign_key: :sender_id,
+           class_name: :FriendRequest
+
+  has_many :friend_requests_as_receiver,
+           foreign_key: :receiver_id,
+           class_name: :FriendRequest
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable,
-         :omniauthable, :omniauth_providers => [:github]
+         :omniauthable, omniauth_providers: [:github]
 
   def self.from_omniauth(auth)
-    #binding.pry
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.provider = auth.provider
-        user.name = auth.info.name
-        user.uid = auth.uid
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-      end
+    # binding.pry
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.name = auth.info.name
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
   end
 end
